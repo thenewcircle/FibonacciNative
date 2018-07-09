@@ -1,4 +1,3 @@
-
 package com.marakana.android.fibonaccinative;
 
 import android.util.Log;
@@ -10,19 +9,19 @@ public class FibLib {
         return n <= 0 ? 0 : n == 1 ? 1 : fib(n - 1) + fib(n - 2);
     }
 
-    // Recursive Java implementation of the Fibonacci algorithm 
+    // Recursive Java implementation of the Fibonacci algorithm
     // (included for comparison only)
     public static long fibJR(long n) {
         Log.d(TAG, "fibJR(" + n + ")");
         return fib(n);
     }
 
-    // Function prototype for future native recursive implementation 
+    // Function prototype for future native recursive implementation
     // of the Fibonacci algorithm
     public native static long fibNR(long n);
 
 
-    // Iterative Java implementation of the Fibonacci algorithm 
+    // Iterative Java implementation of the Fibonacci algorithm
     // (included for comparison only)
     public static long fibJI(long n) {
         Log.d(TAG, "fibJI(" + n + ")");
@@ -36,12 +35,12 @@ public class FibLib {
         return result;
     }
 
-    // Function prototype for future iterative recursive implementation 
+    // Function prototype for future iterative recursive implementation
     // of the Fibonacci algorithm
     public native static long fibNI(long n);
 
+    // Used to load the 'native-lib' library on application startup.
     static {
-        // as defined by LOCAL_MODULE in Android.mk
-        System.loadLibrary("com_marakana_android_fibonaccinative_FibLib");
+        System.loadLibrary("native-lib");
     }
 }
